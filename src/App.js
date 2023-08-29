@@ -7,7 +7,7 @@ export default () => {
     const [resultado, setResultado] = useState("0"); 
 
     const numero = (n) => {
-        if (resultado === "0" || resultado === "Error") {
+        if (resultado === '0') {
             setResultado(String(n));
         } else {
             setResultado(resultado + n);
@@ -16,6 +16,9 @@ export default () => {
 
     const limpaTela = () => {
         setResultado("0");
+    };
+    const voltarTela = () => {
+        setResultado(resultado - " " - op - " ");
     };
 
     const operador = (op) => {
@@ -40,7 +43,7 @@ export default () => {
                 <Botao valor="C" operador onClick={limpaTela} />
                 <Botao valor="()" operador onClick={() => operador("(")} />
                 <Botao valor="%" operador onClick={() => operador("%")} />
-                <Botao valor="<<" operador onClick={() => operador("<<")} />
+                <Botao valor="<<" operador onClick={voltarTela} />
                 <Botao valor="7" onClick={() => numero("7")} />
                 <Botao valor="8" onClick={() => numero("8")} />
                 <Botao valor="9" onClick={() => numero("9")} />
